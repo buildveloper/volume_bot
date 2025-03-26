@@ -6,6 +6,10 @@ app.use(express.json());
 const bot = new TelegramBot('8171699930:AAGioMc4CDR2m0eGiNriZfjO-GnL0wCGcEQ', { polling: false });
 const subscribers = new Set();
 
+app.get('/', (req, res) => {
+  res.send('Telegram Volume Bot is running!');
+});
+
 app.post('/', (req, res) => {
   bot.processUpdate(req.body); // Process Telegram updates
   res.sendStatus(200); // Acknowledge Telegram
