@@ -11,8 +11,9 @@ app.get('/', (req, res) => {
 });
 
 app.post('/', (req, res) => {
-  bot.processUpdate(req.body); // Process Telegram updates
-  res.sendStatus(200); // Acknowledge Telegram
+  console.log('Received update:', req.body); // Log incoming Telegram data
+  bot.processUpdate(req.body);
+  res.sendStatus(200);
 });
 
 bot.onText(/\/start/, (msg) => {
@@ -20,10 +21,10 @@ bot.onText(/\/start/, (msg) => {
     subscribers.add(chatId);
     bot.sendMessage(chatId, 'Welcome! You will receive alerts when the volume exceeds 10 Million USD');
   });
-
+  
   bot.onText(/\/checkvolume/, (msg) => {
-    const chatId = msg.chat.id;
-    checkVolume(chatId);
+    console.log('Checkvolume command received from:', msg.chat.id);
+    checkVolume(msg.chat.id);
   });
   
   // Volume Monitoring
