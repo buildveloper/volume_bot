@@ -16,21 +16,16 @@ app.post('/', (req, res) => {
   res.sendStatus(200);
 });
 
-bot.on('message', (msg) => {
-  const chatId = msg.chat.id;
-  bot.sendMessage(chatId, `You said: ${msg.text}`);
-});
-
-// bot.onText(/\/start/, (msg) => {
-//     const chatId = msg.chat.id;
-//     subscribers.add(chatId);
-//     bot.sendMessage(chatId, 'Welcome! You will receive alerts when the volume exceeds 10 Million USD');
-//   });
+bot.onText(/\/start/, (msg) => {
+    const chatId = msg.chat.id;
+    subscribers.add(chatId);
+    bot.sendMessage(chatId, 'Welcome! You will receive alerts when the volume exceeds 10 Million USD');
+  });
   
-//   bot.onText(/\/checkvolume/, (msg) => {
-//     console.log('Checkvolume command received from:', msg.chat.id);
-//     checkVolume(msg.chat.id);
-//   });
+  bot.onText(/\/checkvolume/, (msg) => {
+    console.log('Checkvolume command received from:', msg.chat.id);
+    checkVolume(msg.chat.id);
+  });
   
   // Volume Monitoring
 function checkVolume(chatId) {
