@@ -35,7 +35,7 @@ export default function VolumeCard() {
   return (
     <div className="min-h-screen bg-gray-900 flex items-center justify-center p-4">
       <div className="w-full max-w-sm bg-gradient-to-br from-indigo-600 to-purple-700 rounded-xl shadow-2xl p-6 text-white">
-        <h1 className="text-2xl font-bold text-center mb-4">Bitcoin Volume Card</h1>
+        <h1 className="text-2xl font-bold text-center mb-4">Meow Peow Peow Bitcoin Volume Card</h1>
         
         <div className="bg-white/10 rounded-lg p-4 mb-4">
           <p className="text-sm opacity-80">Current Volume</p>
